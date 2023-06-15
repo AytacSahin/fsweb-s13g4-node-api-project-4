@@ -1,5 +1,11 @@
 const userModel = require("./users-model");
 
+function logger(req, res, next) {
+    console.log(`${new Date().toLocaleString()} - req created as = ${req.method} - URL: ${req.originalUrl}`
+    );
+    next();
+}
+
 function validatePayload(req, res, next) {
     try {
         let { username, password } = req.body;
@@ -29,6 +35,7 @@ function validateLogin(req, res, next) {
 }
 
 module.exports = {
+    logger,
     validateLogin,
     validatePayload
 }

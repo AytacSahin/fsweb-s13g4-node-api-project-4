@@ -16,7 +16,7 @@ const defaultUSers = [
     { id: idGenerator(), username: "Selçuk", password: "8255" },
 ]
 
-allUsers.forEach(user => { allUsers.push(user) });
+defaultUSers.forEach(user => { allUsers.push(user) });
 
 function getAllUsers() {
     return allUsers;
@@ -28,10 +28,8 @@ function insert(user) {
     return user;
 }
 
-function findUser(user, password) {
-    let existUser = allUsers.find((user) => {
-        user.username == username && user.password == password
-    })
+function findUser(username, password) {
+    let existUser = allUsers.find((x) => x.username == username && x.password == password)
     return existUser;
 }
 
