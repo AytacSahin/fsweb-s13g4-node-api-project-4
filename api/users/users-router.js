@@ -22,7 +22,7 @@ router.post("/register", middleware.validatePayload, (req, res, next) => {
     } catch (error) {
         next(error)
     }
-})
+}) 
 
 router.post("/login", middleware.validatePayload, middleware.validateLogin, (req, res, next) => {
     try {
